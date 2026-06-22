@@ -1,0 +1,76 @@
+/*Global Stuff*/
+
+@font-face {
+    font-family: "DignitaryGrandeur";
+    src: url(DignitaryGrandeur.ttf)
+}
+
+* {
+    font-family: "DignitaryGrandeur";
+}
+
+/*Main Stuff*/
+
+#MainDiv {
+    border: 2px solid black;
+    margin: 20px;
+    border-radius: 16px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+#MainDiv:hover {
+    box-shadow: 10px 10px black;
+}
+
+#TotalDiv {
+    display: flex;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+#TotalDiv:hover {
+    border: 2px solid;
+    border-image: linear-gradient(45deg,rgba(255, 247, 0, 1) 0%, rgba(0, 247, 255, 1) 50%, rgba(242, 0, 255, 1) 100%) 1;
+    box-shadow: 5px 5px 3px black;
+}
+
+
+#NotesDiv {
+    display: flex;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+#NotesDiv:hover {
+    border: 2px solid;
+    border-image: linear-gradient(45deg,rgba(0, 255, 102, 1) 0%, rgba(255, 0, 153, 1) 50%, rgba(0, 225, 255, 1) 100%) 1;
+    box-shadow: 5px 5px 3px black;
+}
+
+#AddRemoveDiv {
+    display: flex;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+#AddRemoveDiv:hover {
+    border: 2px solid;
+    border-image: linear-gradient(45deg,rgba(0, 187, 255, 1) 0%, rgba(255, 38, 0, 1) 100%) 1;
+    box-shadow: 5px 5px 3px black;
+}
+
+#HistoryDiv {
+    display: flex;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+#HistoryDiv:hover {
+    border: 2px solid;
+    border-image: linear-gradient(45deg,rgba(251, 255, 0, 1) 0%, rgba(255, 0, 255, 1) 100%) 1;
+    box-shadow: 5px 5px 3px black;
+}
