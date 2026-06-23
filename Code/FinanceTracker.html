@@ -4,28 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance Tracker by Gülyabani</title>
-    <link rel="stylesheet" href="Style 1.css">
+    <link rel="stylesheet" href="Style1.css">
 </head>
 <body>
     <div id="MainDiv">
         <div id="TotalDiv">
-            <p>Total Money:</p>
-            <p>A</p>
+            <h2 id="TotalText">Total Money: </h2>
         </div>
         <div id="NotesDiv">
-            <p>Notes</p>
+            <h2>Notes</h2>
+            <ul id="NotesList">
+                
+            </ul>
         </div>
         <div id="AddRemoveDiv">
-            <p>Income</p>
-            <p>Not-Income</p>
+            <h2>Income/Expense</h2>
         </div>
         <div id="GraphDiv">
-            <p>Graph</p>
+            <h2>Graph</h2>
         </div>
         <div id="HistoryDiv">
-            <p>History</p>
+            <h2>History</h2>
+            <ul id="HistoryList">
+
+            </ul>
         </div>
     </div>
-    <script src="Finance Tracker.js"></script>
+
+
+<!--Extra Boxes-->
+    <div id="EditDiv">
+        <input type="number" placeholder="Please enter some value" id="EditInput" max="999999999" autocomplete="off">
+    </div>
+    <div id="NoteAddDiv">
+        <input type="text" placeholder="Example: Do not spend money on action figures" id="NoteAddInput" autocomplete="off">
+    </div>
+    <div id="IncomeExpenseDiv">
+        <input type="number" min="0" placeholder="Negative numbers are not accepted" id="IncomeInput" autocomplete="off">
+        <input type="number" max="0" placeholder="Positive numbers are not accepted" id="ExpenseInput" autocomplete="off">
+    </div>
+
+<!--Overlay-->
+    <div id="Overlay">
+    </div>
+    <script src="FinanceTracker.js"></script>
 </body>
 </html>
