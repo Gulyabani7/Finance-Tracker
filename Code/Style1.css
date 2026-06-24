@@ -23,6 +23,7 @@ body {
     flex-direction: column;
     padding: 10px 10px 10px 0px;
     background: white;
+    transition: 0.3s ease;
 }
 
 #MainDiv:hover {
@@ -103,6 +104,9 @@ body {
     border: 1px solid black;
     background: transparent;
 }
+
+
+
 /*Stuff That Appears After Something Happens*/
 
 #EditDiv {
