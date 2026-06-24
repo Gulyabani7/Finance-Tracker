@@ -1,9 +1,14 @@
 //Stuff That Just There
-let TotalDiv = document.getElementById("TotalDiv");
-let TotalText = document.getElementById("TotalText"); 
-let NotesDiv = document.getElementById("NotesDiv");
-let Overlay = document.getElementById("Overlay");
+const TotalDiv = document.getElementById("TotalDiv");
+const TotalText = document.getElementById("TotalText"); 
+const NotesDiv = document.getElementById("NotesDiv");
+const Overlay = document.getElementById("Overlay");
+const GraphDiv = document.getElementById("GraphDiv")
+const Graph = document.getElementById("GraphSVG");
+const GraphPath = document.getElementById("GraphPath");
 let TotalMoney = 0
+let X = 20;
+let Y = 20;
 
 //Stuff That Appears After Something Happens
 let EditDiv = document.getElementById("EditDiv");
@@ -89,6 +94,13 @@ IncomeInput.addEventListener("keypress", function (event) {
             NewHistorySpan.append(NewHistoryDeleteButton)
             HistoryList.append(NewHistorySpan)
 
+            let GraphPathString = GraphPath.getAttribute("d")
+            let Blah = Number(IncomeInput.value)/TotalMoney * 100
+            let NewGraphPathString = GraphPathString + ` L ${X + Blah} ${Y+10} `
+            console.log(GraphPath.getAttribute("d"));
+            GraphPath.setAttribute("d",NewGraphPathString)
+            X += Blah;
+            Y += 10;
             IncomeInput.value = "";
             NewHistoryDeleteButton.addEventListener("click", (event) => {
                 NewHistorySpan.remove()
