@@ -6,8 +6,9 @@ const Overlay = document.getElementById("Overlay");
 const GraphDiv = document.getElementById("GraphDiv")
 const Graph = document.getElementById("GraphSVG");
 const GraphPath = document.getElementById("GraphPath");
+const GraphMax = document.getElementById("GraphMaximum");
+
 let TotalMoney = 0
-let X = 20;
 let Y = 20;
 
 //Stuff That Appears After Something Happens
@@ -96,11 +97,15 @@ IncomeInput.addEventListener("keypress", function (event) {
 
             let GraphPathString = GraphPath.getAttribute("d")
             let Blah = Number(IncomeInput.value)/TotalMoney * 100
-            let NewGraphPathString = GraphPathString + ` L ${X + Blah} ${Y+10} `
+            Blah = Math.max(Math.min(Blah,100),0)
+            let NewGraphPathString = GraphPathString + ` L  ${Y} ${Blah} `
             console.log(GraphPath.getAttribute("d"));
-            GraphPath.setAttribute("d",NewGraphPathString)
-            X += Blah;
+            GraphPath.setAttribute("d",NewGraphPathString);
+            GraphPath.setAttribute("stroke","rgb(30, 126, 244)")
+            GraphMax.textContent = TotalMoney + "$"
             Y += 10;
+
+
             IncomeInput.value = "";
             NewHistoryDeleteButton.addEventListener("click", (event) => {
                 NewHistorySpan.remove()
@@ -130,6 +135,25 @@ ExpenseInput.addEventListener("keypress", function (event) {
             NewHistorySpan.append(NewHistoryList);
             NewHistorySpan.append(NewHistoryDeleteButton)
             HistoryList.append(NewHistorySpan)
+
+            let GraphPathString = GraphPath.getAttribute("d")
+            let Blah = Number(ExpenseInput.value)/TotalMoney * 50
+            
+            console.log(Blah)
+            let NewGraphPathString = GraphPathString + ` L  ${Y} ${Blah} `
+            console.log(GraphPath.getAttribute("d"));
+            if (Blah !== Infinity ) {
+                GraphPath.setAttribute("d",NewGraphPathString);
+                GraphPath.setAttribute("stroke","rgb(244, 30, 123)")
+            }
+            else {
+                NewGraphPathString = GraphPathString + ` L  ${Y} 0 `
+                GraphPath.setAttribute("d",NewGraphPathString);
+                GraphPath.setAttribute("stroke","rgb(244, 30, 123)")
+            }
+            GraphMax.textContent = TotalMoney + "$"
+            Y += 10;
+
             ExpenseInput.value = "";
             NewHistoryDeleteButton.addEventListener("click", (event) => {
                 NewHistorySpan.remove()
