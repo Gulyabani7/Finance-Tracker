@@ -21,10 +21,16 @@
             <h2>Income/Expense</h2>
         </div>
         <div id="GraphDiv">
-            <h2>Graph</h2>
-            <svg id="GraphSVG" width="100px" height="100px">
-                <path d="M 10 10" fill="transparent" stroke="red" stroke-width="3px" id="GraphPath">
-            </svg>
+            <h2>Graph(Negative values are not supported, sorry people in debt)</h2>
+            <div id="GraphDiv2">
+                <svg id="GraphSVG" width="100%" height="100px">
+                    <path d="M 0 0" fill="transparent" stroke="rgb(244, 30, 123)" stroke-width="3px" id="GraphPath">
+                </svg>
+                <span>
+                <p id="GraphMinimum">0$</p>
+                <p id="GraphMaximum"></p>
+                </span>
+            </div>
         </div>
         <div id="HistoryDiv">
             <h2>History</h2>
