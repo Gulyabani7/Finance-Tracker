@@ -13,6 +13,20 @@ body {
     background: linear-gradient(180deg,rgba(0, 251, 255, 1) 0%, rgba(0, 126, 255, 1) 25%, rgba(0, 126, 255, 1) 75%, rgba(0, 251, 255, 1) 100%);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+}
+
+input {
+    font-size: xx-large;
+}
+
 /*Main Stuff*/
 
 #MainDiv {
@@ -30,12 +44,12 @@ body {
     box-shadow: 10px 10px black;
 }
 
-#MainDiv div {
+#MainDiv div:not(#GraphDiv2){
     margin: 2px;
     transition: 0.3s ease-in-out;
 }
 
-#MainDiv div:hover {
+#MainDiv div:not(#GraphDiv2):hover {
     margin: 0px;
     box-shadow: 5px 5px 3px black;
 }
@@ -105,7 +119,28 @@ body {
     background: transparent;
 }
 
+#GraphDiv:hover {
+    border: 2px solid;
+    border-image: linear-gradient(45deg,rgb(212, 0, 255) 0%, rgb(255, 0, 64) 100%) 1;
+}
 
+#GraphDiv2 {
+    display: flex;
+    padding: 5px;
+}
+
+#GraphDiv2 span {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+svg {
+    border: 2px solid black; 
+}
 
 /*Stuff That Appears After Something Happens*/
 
@@ -113,18 +148,34 @@ body {
     position: fixed;
     visibility: hidden;
     top: 50%;
+    width: 80%;
+    height: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 4;
+}
+
+#EditDiv input {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
 }
 
 #NoteAddDiv {
     position: fixed;
     visibility: hidden;
     top: 50%;
+    width: 80%;
+    height: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 4;
+}
+
+#NoteAddInput {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
 }
 
 #IncomeExpenseDiv {
@@ -133,9 +184,16 @@ body {
     flex-direction: column;
     visibility: hidden;
     top: 50%;
+    width: 80%;
+    height: 30%;
     left: 50%;
+    justify-content: space-between;
     transform: translate(-50%, -50%);
     z-index: 4;
+}
+
+#IncomeExpenseDiv input {
+    border-radius: 8px;
 }
 
 /*Overlay*/
@@ -147,6 +205,22 @@ body {
     width: 100%;
     height: 100%;
     background-color: gray;
-    opacity: 0.7;
+    opacity: 0.95;
     z-index: 3;
+}
+
+/*Responsive Design*/
+@media (max-width: 600px) {
+    input {
+        font-size: medium;
+    }
+    #EditDiv {
+        height: 5%;
+    }
+    #NoteAddDiv {
+        height: 5%;
+    }
+    #IncomeExpenseDiv input {
+        height: 20%;
+    }
 }
